@@ -34,7 +34,6 @@
 }
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -52,7 +51,6 @@ body {
   font-family: var(--font-body), 'Inter', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 a {
@@ -311,12 +309,24 @@ p {
    NAV
    ========================================================================= */
 .nav-wrap {
-  position: sticky;
+  position: fixed;
   top: 14px;
+  left: 0;
+  right: 0;
   z-index: 100;
   display: flex;
   justify-content: center;
   padding: 0 16px;
+}
+/* Fixed = keluar dari alur dokumen, jadi butuh "pengganjal" ini supaya
+   konten pertama (Hero) tidak ketiban navbar saat halaman baru dibuka. */
+.nav-spacer {
+  height: 84px;
+}
+@media (max-width: 760px) {
+  .nav-spacer {
+    height: 76px;
+  }
 }
 .nav {
   display: inline-flex;
@@ -463,6 +473,24 @@ p {
 .nav-mobile-wa:hover {
   opacity: 0.9;
   background: var(--ink);
+}
+
+/* Garis progress scroll putih di paling atas layar - z-index di atas
+   navbar (yang fixed di z-index:100) supaya selalu kelihatan. */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 200;
+  background: transparent;
+}
+.scroll-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 @media (min-width: 761px) {
   .nav-mobile-panel,
@@ -1657,6 +1685,36 @@ p {
   color: var(--ink-dim);
   margin-top: 10px;
   line-height: 1.5;
+}
+/* Ringkasan beda method, muncul di bawah pilihan radio saat salah satu
+   method dipilih - lihat PricingOrder.tsx. */
+.method-hint {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel-hi);
+}
+.method-hint-fit {
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.method-hint-fit strong {
+  color: var(--ink);
+}
+.method-hint-pro,
+.method-hint-con {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.method-hint-pro {
+  color: #8fd6a8;
+}
+.method-hint-con {
+  color: #e0b978;
 }
 #wa-btn {
   width: 100%;

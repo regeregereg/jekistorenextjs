@@ -23,6 +23,7 @@ export function PricingOrder() {
   const [name, setName] = useState('');
   const [error, setError] = useState<string | null>(null);
   const nameInputRef = useRef<HTMLInputElement>(null);
+  const selectedMethod = methodOptions.find((method) => method.id === selectedMethodId);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -127,6 +128,19 @@ export function PricingOrder() {
                 ))}
               </div>
               <p className="gmail-note">Setiap method membutuhkan Gmail baru yang belum terdaftar di TradingView.</p>
+
+              {/* Ringkasan beda tiap method langsung di sini, diambil dari
+                  data yang sama dengan section #method - jadi user tidak
+                  perlu scroll balik ke atas untuk tahu bedanya. */}
+              {selectedMethod ? (
+                <div className="method-hint" aria-live="polite">
+                  <p className="method-hint-fit">
+                    <strong>{selectedMethod.name}</strong> cocok buat kamu yang {selectedMethod.fitDescription}
+                  </p>
+                  {selectedMethod.pros[0] ? <p className="method-hint-pro">✓ {selectedMethod.pros[0]}</p> : null}
+                  {selectedMethod.cons[0] ? <p className="method-hint-con">⚠ {selectedMethod.cons[0]}</p> : null}
+                </div>
+              ) : null}
             </div>
 
             {error ? (

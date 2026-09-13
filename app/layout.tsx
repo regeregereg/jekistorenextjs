@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import { AppProviders } from '@/app/providers/AppProviders';
 import { JsonLd } from '@/app/components/seo/JsonLd';
 import { SkipLink } from '@/app/components/layout/SkipLink';
+import { ScrollProgressBar } from '@/app/components/layout/ScrollProgressBar';
 import { siteConfig } from '@/lib/config/site';
 
 // Font di-self-host, tidak ada satu pun yang memanggil Google Fonts saat
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd />
       </head>
       <body>
+        <ScrollProgressBar />
         <SkipLink />
         <AppProviders>{children}</AppProviders>
       </body>
