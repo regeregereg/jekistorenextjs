@@ -3,7 +3,7 @@ import { Navbar } from '@/app/components/layout/Navbar';
 import { Footer } from '@/app/components/layout/Footer';
 import { FloatingWhatsApp } from '@/app/components/layout/FloatingWhatsApp';
 import { Hero } from '@/app/components/sections/Hero';
-import { ProofStrip } from '@/app/components/sections/ProofStrip';
+import { TestimonialSpotlight } from '@/app/components/sections/TestimonialSpotlight';
 import { TrustSection } from '@/app/components/sections/TrustSection';
 import { Membership } from '@/app/components/sections/Membership';
 import { Methods } from '@/app/components/sections/Methods';
@@ -23,7 +23,7 @@ export default function HomePage() {
       <Navbar />
       <main id="main">
         <Hero />
-        <ProofStrip />
+        <TestimonialSpotlight />
         <TrustSection />
         <Membership />
         <Methods />

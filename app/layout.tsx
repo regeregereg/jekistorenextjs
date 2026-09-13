@@ -1,26 +1,34 @@
 import type { Metadata, Viewport } from 'next';
+import localFont from 'next/font/local';
 import { AppProviders } from '@/app/providers/AppProviders';
 import { JsonLd } from '@/app/components/seo/JsonLd';
 import { SkipLink } from '@/app/components/layout/SkipLink';
 import { siteConfig } from '@/lib/config/site';
 
-// Font di-self-host lewat Fontsource (bukan next/font/google) supaya build
-// tidak pernah bergantung pada koneksi ke Google Fonts saat itu juga -
-// penting untuk CI/CD atau lingkungan tanpa akses internet penuh. File
-// font ikut ter-bundle di dalam proyek, nama family didaftarkan otomatis
-// lewat @font-face di CSS masing-masing paket, dan dipetakan ke variabel
-// --font-display / --font-body / --font-mono di globals.css.
-import '@fontsource/space-grotesk/500.css';
-import '@fontsource/space-grotesk/600.css';
-import '@fontsource/space-grotesk/700.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/inter/700.css';
+// Font di-self-host, tidak ada satu pun yang memanggil Google Fonts saat
+// runtime/build - build tidak bisa gagal gara-gara jaringan (lihat catatan
+// migrasi sebelumnya soal ini).
+//
+// - General Sans (body + heading) dimuat lewat next/font/local dari file
+//   .ttf yang disediakan langsung (app/fonts/) - dioptimasi otomatis oleh
+//   Next.js (subsetting, preload, tanpa FOUT), tanpa request eksternal.
+// - Anton (khusus headline besar hero & watermark dekoratif) dan
+//   JetBrains Mono (angka harga, label kecil) tetap lewat Fontsource,
+//   sama seperti sebelumnya.
+import '@fontsource/anton';
 import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/500.css';
 import '@fontsource/jetbrains-mono/600.css';
 import './globals.css';
+
+const generalSans = localFont({
+  src: [
+    { path: './fonts/GeneralSans-Regular.ttf', weight: '400', style: 'normal' },
+    { path: './fonts/GeneralSans-Bold.ttf', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-general-sans',
+  display: 'swap',
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -82,7 +90,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id">
+    <html lang="id" className={generalSans.variable}>
       <head>
         <JsonLd />
       </head>

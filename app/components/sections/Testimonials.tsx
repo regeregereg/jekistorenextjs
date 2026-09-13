@@ -1,10 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import { ImageIcon } from 'lucide-react';
 import { Reveal } from '@/app/components/ui/Reveal';
 import { GradientButton } from '@/app/components/ui/GradientButton';
+import { ImageWithFallback } from '@/app/components/ui/ImageWithFallback';
 import { useLightbox } from '@/app/components/lightbox/LightboxProvider';
 import { testimonialPhotos, testimonialVideos, hiddenTestimonialCount } from '@/lib/data/testimonials';
 import { genericWhatsAppUrl } from '@/lib/whatsapp';
@@ -12,18 +11,18 @@ import { trackEvent } from '@/lib/analytics';
 
 function TestimonialPhotoCard({ src, alt }: { src: string; alt: string }) {
   const { open } = useLightbox();
-  const [failed, setFailed] = useState(false);
 
   return (
     <button type="button" className="testi-photo-card" onClick={() => open(src, alt)} aria-label={`Lihat ${alt}`}>
-      {failed ? (
-        <div className="testi-photo-fallback" style={{ display: 'flex' }}>
-          <ImageIcon size={20} />
-          Foto Testi
-        </div>
-      ) : (
-        <Image src={src} alt={alt} fill sizes="180px" loading="lazy" unoptimized onError={() => setFailed(true)} />
-      )}
+      <ImageWithFallback
+        src={src}
+        alt={alt}
+        fill
+        sizes="180px"
+        loading="lazy"
+        fallbackLabel="Foto Testi"
+        fallbackClassName="testi-photo-fallback"
+      />
     </button>
   );
 }

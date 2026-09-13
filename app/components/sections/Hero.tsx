@@ -1,39 +1,47 @@
-import { GradientButton } from '@/app/components/ui/GradientButton';
+import { ImageWithFallback } from '@/app/components/ui/ImageWithFallback';
 import { WhatsAppIcon } from '@/app/components/ui/Icons';
 import { siteConfig } from '@/lib/config/site';
-import { formatRupiah } from '@/lib/format';
 
 export function Hero() {
   return (
     <section className="hero">
-      <div className="glow glow-hero" aria-hidden="true" />
-      <div className="grid-bg" aria-hidden="true" />
       <div className="container">
-        <h1>
-          Chart yang Bukan
+        <div className="hero-visual">
+          <ImageWithFallback
+            src={siteConfig.hero.imageSrc}
+            alt={`Ilustrasi ${siteConfig.name}`}
+            fill
+            priority
+            sizes="(min-width: 761px) 480px, 100vw"
+            fallbackLabel="Taruh ilustrasi/foto hero di sini"
+          />
+        </div>
+
+        <div className="hero-eyebrow">{siteConfig.hero.tags.join(' . ')}</div>
+
+        <h1 className="text-impact">
+          Chart Yang Bukan
           <br />
-          Sekadar Cukup.
+          Sekadar Cukup,
           <br />
           Premium.
         </h1>
+
+        {/* Teks & penebalan kata sengaja ditulis langsung di sini (bukan
+            data-driven) karena formatnya spesifik per-kalimat dan jarang
+            berubah - lihat lib/data/testimonials.ts untuk pola data-driven
+            kalau butuh konten yang lebih sering diedit. */}
         <p className="hero-sub">
-          {siteConfig.name} membantu kamu membuka semua batasan TradingView gratis, mulai dari indikator, alert,
-          hingga Replay Mode tanpa kompromi, dengan harga yang masuk akal.
+          {siteConfig.name} <b>membantu</b> kamu membuka semua batasan <b>TradingView gratis,</b> mulai dari{' '}
+          <b>indikator,</b> alert, hingga <b>Replay Mode</b> tanpa kompromi, dengan harga yang <b>masuk akal.</b>
         </p>
-        <GradientButton href="#order">
-          <WhatsAppIcon />
+
+        <a href="#order" className="hero-cta-pill">
+          <span className="hero-cta-icon">
+            <WhatsAppIcon size={16} />
+          </span>
           Order Sekarang
-        </GradientButton>
-        <div className="hero-price-row" style={{ marginTop: 32 }}>
-          <span className="hero-price mono">{formatRupiah(siteConfig.price.amount)}</span>
-          {siteConfig.price.compareAtAmount ? (
-            <span className="hero-price-old mono">{formatRupiah(siteConfig.price.compareAtAmount)}+</span>
-          ) : null}
-        </div>
-        <p className="hero-price-note">
-          per {siteConfig.price.period} · diproses {siteConfig.operatingHours.openTime}–
-          {siteConfig.operatingHours.closeTime} {siteConfig.operatingHours.timezone}
-        </p>
+        </a>
       </div>
     </section>
   );
