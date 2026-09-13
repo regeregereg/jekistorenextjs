@@ -1,49 +1,88 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { GradientButton } from '@/app/components/ui/GradientButton';
+import { WhatsAppIcon } from '@/app/components/ui/Icons';
 import { siteConfig, whatsappBaseUrl } from '@/lib/config/site';
 
 const navLinks = [
-  { href: '#kenapa', label: 'Kenapa' },
   { href: '#membership', label: 'Langganan' },
+  { href: '#method', label: 'Method' },
   { href: '#faq', label: 'FAQ' },
 ];
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Kunci scroll body & tutup panel otomatis kalau layar dibesarkan ke desktop.
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 760) setMobileOpen(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   return (
     <div className="nav-wrap">
       <nav className="nav">
         <span className="nav-mark">{siteConfig.brandMark}</span>
-        <span className="nav-hamburger" aria-hidden="true">
-          <Menu size={18} />
-        </span>
-        <div className="nav-links" style={mobileOpen ? { display: 'flex', position: 'absolute', top: '100%', left: 8, right: 8, background: 'var(--panel)', flexDirection: 'column', padding: 10, gap: 6, borderRadius: 16, border: '1px solid var(--line)', marginTop: 8 } : undefined}>
+
+        <div className="nav-links">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
+            <a key={link.href} href={link.href}>
               {link.label}
             </a>
           ))}
         </div>
+
         <Link href={whatsappBaseUrl} target="_blank" rel="noopener noreferrer" className="nav-pill">
           Kontak
         </Link>
         <GradientButton href="#order" size="sm">
           Order
         </GradientButton>
+
         <button
           className="nav-toggle"
-          aria-label="Buka menu"
+          aria-label={mobileOpen ? 'Tutup menu' : 'Buka menu'}
+          aria-expanded={mobileOpen}
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
         >
-          <Menu size={19} />
+          {mobileOpen ? <X size={19} /> : <Menu size={19} />}
         </button>
       </nav>
+
+      {/* Panel menu mobile: overlay + slide-down, terpisah dari .nav supaya
+          tidak ikut membesarkan pill nav saat dibuka. */}
+      <div className={`nav-mobile-backdrop${mobileOpen ? ' open' : ''}`} onClick={() => setMobileOpen(false)} />
+      <div className={`nav-mobile-panel${mobileOpen ? ' open' : ''}`} aria-hidden={!mobileOpen}>
+        {navLinks.map((link) => (
+          <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
+            {link.label}
+          </a>
+        ))}
+        <a
+          href={whatsappBaseUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-mobile-wa"
+          onClick={() => setMobileOpen(false)}
+        >
+          <WhatsAppIcon size={16} />
+          Chat Admin
+        </a>
+      </div>
     </div>
   );
 }

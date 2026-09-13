@@ -4,7 +4,6 @@ import { Footer } from '@/app/components/layout/Footer';
 import { FloatingWhatsApp } from '@/app/components/layout/FloatingWhatsApp';
 import { Hero } from '@/app/components/sections/Hero';
 import { TestimonialSpotlight } from '@/app/components/sections/TestimonialSpotlight';
-import { TrustSection } from '@/app/components/sections/TrustSection';
 import { Membership } from '@/app/components/sections/Membership';
 import { Methods } from '@/app/components/sections/Methods';
 import { FitFilter } from '@/app/components/sections/FitFilter';
@@ -24,7 +23,6 @@ export default function HomePage() {
       <main id="main">
         <Hero />
         <TestimonialSpotlight />
-        <TrustSection />
         <Membership />
         <Methods />
         <FitFilter />

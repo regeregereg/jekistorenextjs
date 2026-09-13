@@ -10,7 +10,6 @@ const subscriptionLinks = [
 ];
 
 const aboutLinks = [
-  { href: '#kenapa', label: 'Kenapa Jeki Store' },
   { href: '/blog', label: 'Blog' },
   { href: '#faq', label: 'FAQ' },
 ];
