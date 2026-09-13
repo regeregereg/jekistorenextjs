@@ -557,21 +557,21 @@ p {
 
 /* Tombol CTA khusus hero: pill terang dengan ikon dalam lingkaran gelap -
    beda gaya dari GradientButton yang dipakai di section lain, sesuai
-   referensi desain. Dibuat sebagai style lokal (bukan varian baru di
-   GradientButton) karena style ini spesifik untuk hero saja. */
+   referensi desain. Lebarnya mengikuti panjang teks (fit-content), bukan
+   melebar penuh container, di semua ukuran layar. */
 .hero-cta-pill {
   position: relative;
   z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  width: 100%;
-  max-width: 340px;
+  gap: 12px;
+  width: fit-content;
+  max-width: 100%;
   background: #ededed;
   color: #101113;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 6px 26px 6px 6px;
+  padding: 6px 22px 6px 6px;
   border-radius: 999px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
@@ -581,8 +581,8 @@ p {
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
 }
 .hero-cta-icon {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #101113;
   color: #fff;
@@ -590,11 +590,6 @@ p {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-}
-@media (min-width: 761px) {
-  .hero-cta-pill {
-    width: auto;
-  }
 }
 
 /* Placeholder generik untuk gambar yang belum diunggah ke /public (dipakai
@@ -656,40 +651,37 @@ p {
   }
 }
 
+/* .spotlight-frame = "kotak" tetap yang selalu diam di tempat (border,
+   rounded corner, bayangan). .spotlight-track & .spotlight-slide di
+   dalamnya yang bergeser saat swipe - jadi yang terlihat berubah cuma
+   konten di dalam kotak, bukan kotaknya sendiri berpindah. */
+.spotlight-frame {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--spot-card);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
 .spotlight-track {
   display: flex;
-  gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 0;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  margin: 0 -24px;
-  padding: 0 24px 4px;
 }
 .spotlight-track::-webkit-scrollbar {
   display: none;
 }
-.spotlight-card {
+.spotlight-slide {
   flex: 0 0 100%;
-  max-width: 480px;
+  width: 100%;
   scroll-snap-align: start;
   position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--spot-card);
   display: flex;
   flex-direction: column;
-}
-@media (min-width: 761px) {
-  .spotlight-track {
-    justify-content: center;
-    margin: 0;
-    padding: 0 0 4px;
-  }
-  .spotlight-card {
-    flex-basis: 480px;
-  }
+  background: var(--spot-card);
 }
 .spotlight-tag {
   position: absolute;
@@ -711,8 +703,28 @@ p {
   aspect-ratio: 1 / 1;
   background: var(--spot-card);
 }
+/* Placeholder gambar khusus di dalam frame terang ini - beda dari
+   .image-fallback default (tema gelap situs) supaya warnanya tetap
+   menyatu dengan kartu, bukan malah jadi kotak hitam mencolok. */
+.spotlight-photo-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--spot-ink-mid);
+  font-size: 0.72rem;
+  text-align: center;
+  padding: 14px;
+  background: var(--spot-card);
+}
+/* Caption memakai background yang sama persis dengan foto & frame supaya
+   teks terlihat menyatu jadi satu permukaan, bukan strip terpisah. */
 .spotlight-caption {
   padding: 20px 22px 26px;
+  background: var(--spot-card);
 }
 .spotlight-date {
   font-weight: 700;

@@ -40,38 +40,46 @@ export function TestimonialSpotlight() {
       </div>
 
       <div className="container">
-        <div
-          className="spotlight-track"
-          ref={trackRef}
-          onScroll={handleScroll}
-          role="group"
-          aria-roledescription="carousel"
-        >
-          {spotlightTestimonials.map((t, i) => (
-            <article
-              className="spotlight-card"
-              key={t.id}
-              role="group"
-              aria-roledescription="slide"
-              aria-label={`Testimoni ${i + 1} dari ${spotlightTestimonials.length}`}
-            >
-              <span className="spotlight-tag">{t.customerName}</span>
-              <div className="spotlight-photo-wrap">
-                <ImageWithFallback
-                  src={t.image}
-                  alt={`Testimoni dari ${t.customerName}`}
-                  fill
-                  sizes="(min-width: 761px) 480px, 90vw"
-                  fallbackLabel="Foto testimoni belum diunggah"
-                  className="spotlight-photo"
-                />
-              </div>
-              <div className="spotlight-caption">
-                <div className="spotlight-date">{t.dateYear}</div>
-                <p className="spotlight-message">{t.message}</p>
-              </div>
-            </article>
-          ))}
+        {/* .spotlight-frame adalah "kotak" tetap (border, rounded corner,
+            posisi) yang tidak ikut bergeser - hanya isi di dalamnya
+            (.spotlight-track) yang di-scroll horizontal saat swipe, supaya
+            terasa seperti satu kotak yang kontennya berganti, bukan
+            beberapa kotak terpisah yang bergeser. */}
+        <div className="spotlight-frame">
+          <div
+            className="spotlight-track"
+            ref={trackRef}
+            onScroll={handleScroll}
+            role="group"
+            aria-roledescription="carousel"
+          >
+            {spotlightTestimonials.map((t, i) => (
+              <article
+                className="spotlight-slide"
+                key={t.id}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`Testimoni ${i + 1} dari ${spotlightTestimonials.length}`}
+              >
+                <span className="spotlight-tag">{t.customerName}</span>
+                <div className="spotlight-photo-wrap">
+                  <ImageWithFallback
+                    src={t.image}
+                    alt={`Testimoni dari ${t.customerName}`}
+                    fill
+                    sizes="(min-width: 761px) 480px, 90vw"
+                    fallbackLabel="Foto testimoni belum diunggah"
+                    fallbackClassName="spotlight-photo-fallback"
+                    className="spotlight-photo"
+                  />
+                </div>
+                <div className="spotlight-caption">
+                  <div className="spotlight-date">{t.dateYear}</div>
+                  <p className="spotlight-message">{t.message}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         {spotlightTestimonials.length > 1 ? (
