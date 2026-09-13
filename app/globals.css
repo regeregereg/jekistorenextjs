@@ -34,6 +34,7 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -141,6 +142,7 @@ p {
   padding: 88px 0;
   border-top: 1px solid var(--line);
   position: relative;
+  overflow-x: hidden;
 }
 @media (max-width: 640px) {
   .section {
