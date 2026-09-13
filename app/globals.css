@@ -1351,30 +1351,34 @@ p {
 }
 .method-eyebrow {
   font-family: var(--font-mono), monospace;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
   color: var(--ink-dim);
   margin-bottom: 8px;
 }
 .method-name {
   font-family: var(--font-display), sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.28rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--ink);
 }
 .method-section-label {
   font-family: var(--font-mono), monospace;
-  font-size: 0.64rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-dim);
-  margin: 14px 0 8px;
+  color: var(--ink-mid);
+  margin: 18px 0 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
 }
 .method-plus {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
   color: var(--ink);
-  margin-bottom: 7px;
+  margin-bottom: 9px;
   font-weight: 500;
   display: flex;
   align-items: flex-start;
@@ -1394,9 +1398,11 @@ p {
   margin-top: 2px;
 }
 .method-minus {
-  font-size: 0.79rem;
-  color: var(--ink-dim);
-  margin-bottom: 5px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  margin-bottom: 9px;
+  font-weight: 500;
   display: flex;
   align-items: flex-start;
   gap: 9px;
@@ -1404,12 +1410,13 @@ p {
 .method-minus svg {
   margin-top: 3px;
   flex-shrink: 0;
+  color: var(--ink-dim);
 }
 .method-fit {
-  font-size: 0.79rem;
+  font-size: 0.85rem;
   color: var(--ink-mid);
   margin-bottom: 4px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .method-fit b {
   color: var(--ink);

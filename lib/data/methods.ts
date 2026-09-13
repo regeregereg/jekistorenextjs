@@ -14,12 +14,15 @@ export const methodOptions: MethodOption[] = [
     recommendedLabel: '★ Paling Direkomendasikan',
     fitDescription: 'kamu analisa & trading utamanya di PC/laptop.',
     pros: [
-      'Login via browser, tanpa perlu utak-atik cookies karena cuma untuk 1 device',
-      'Setting chart bisa disamakan seperti bulan sebelumnya saat perpanjangan',
-      'Tidak ada gangguan back basic',
+      'Login via browser, tanpa aplikasi tambahan',
+      'Setingan chart dibantu disamakan tiap perpanjangan bulan berikutnya',
+      'Jarang sekali kena back basic',
       'Paling direkomendasikan dari method lain',
     ],
-    cons: ['PC/Laptop/Mac saja, tidak bisa HP'],
+    cons: [
+      'Hanya bisa diakses dari PC/Laptop/Mac, tidak bisa dari HP',
+      'Butuh Gmail baru yang belum pernah terdaftar di TradingView',
+    ],
   },
   {
     id: 2,
@@ -27,13 +30,16 @@ export const methodOptions: MethodOption[] = [
     name: 'PC + HP',
     fitDescription: 'kamu tetap butuh akses dari HP selain PC/laptop.',
     pros: [
-      'Akses dari PC + 1 HP/tablet',
-      'Setting chart bisa disamakan seperti bulan sebelumnya saat perpanjangan',
+      'Akses dari PC + HP/tablet',
+      'Setingan chart dibantu disamakan tiap perpanjangan bulan berikutnya',
+      'Jarang sekali kena back basic',
+      'Bisa dipakai di 2 device sekaligus',
     ],
     cons: [
-      'Login tetap via browser (bukan app), jadi butuh setting cookies mengikuti step yang diberikan admin saat akun sudah jadi',
-      'Caranya sebenarnya simpel, hanya perlu dibaca pelan-pelan di awal',
-      'Cookies terhapus, perlu login ulang mengikuti step yang sama',
+      'Login tetap lewat browser, bukan aplikasi',
+      'Agak ribet di login pertama kali karena pakai sistem cookies',
+      'Beberapa awalnya merasa ribet, tapi setelah itu awet 30 hari tanpa perlu ganti-ganti akun',
+      'Butuh Gmail baru yang belum pernah terdaftar di TradingView',
     ],
     adviceNote:
       'kalau kamu sudah punya laptop/PC dan nggak wajib akses HP, Method 1 lebih mudah karena login-nya tidak melalui cookies seperti Method 2. Tapi balik lagi sesuai kebutuhan dan preferensi kamu.',
