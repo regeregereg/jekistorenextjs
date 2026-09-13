@@ -23,9 +23,8 @@ export function Methods() {
         <Reveal className="methods-grid">
           {methodOptions.map((method) => (
             <div key={method.id} className={`method-card${method.featured ? ' featured' : ''}`}>
-              <div className="method-eyebrow">{method.code}</div>
+              <div className="method-big-label text-impact">METHOD {method.id}</div>
               {method.recommendedLabel ? <div className="method-reco">{method.recommendedLabel}</div> : null}
-              <div className="method-name">{method.name}</div>
               <div className="method-fit">
                 <b>Cocok kalau:</b> {method.fitDescription}
               </div>

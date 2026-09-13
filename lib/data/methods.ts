@@ -14,7 +14,7 @@ export const methodOptions: MethodOption[] = [
     recommendedLabel: '★ Paling Direkomendasikan',
     fitDescription: 'kamu analisa & trading utamanya di PC/laptop.',
     pros: [
-      'Login via browser, tanpa aplikasi tambahan',
+      'Login via browser',
       'Setingan chart dibantu disamakan tiap perpanjangan bulan berikutnya',
       'Jarang sekali kena back basic',
       'Paling direkomendasikan dari method lain',

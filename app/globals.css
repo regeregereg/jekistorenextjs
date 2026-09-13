@@ -1363,6 +1363,12 @@ p {
   margin-bottom: 10px;
   color: var(--ink);
 }
+.method-big-label {
+  font-size: clamp(1.7rem, 5.5vw, 2.3rem);
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
 .method-section-label {
   font-family: var(--font-mono), monospace;
   font-size: 0.72rem;
