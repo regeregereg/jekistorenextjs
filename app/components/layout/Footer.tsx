@@ -9,6 +9,7 @@ const subscriptionLinks = [
 ];
 
 const aboutLinks = [
+  { href: '/tentang', label: 'Tentang Kami' },
   { href: '/blog', label: 'Blog' },
   { href: '#faq', label: 'FAQ' },
 ];

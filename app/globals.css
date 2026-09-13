@@ -2111,3 +2111,72 @@ footer {
 .lightbox-close:hover {
   border-color: var(--ink);
 }
+
+/* =========================================================================
+   HALAMAN TENTANG (/tentang)
+   ========================================================================= */
+.about-copy {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 620px;
+  margin-bottom: 16px;
+}
+.about-solve-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 28px;
+  margin-top: 36px;
+}
+@media (max-width: 760px) {
+  .about-solve-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.about-solve-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.about-solve-item .ck-badge {
+  margin-top: 3px;
+}
+.about-solve-title {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.about-solve-desc {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--ink-mid);
+  margin: 0;
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+@media (max-width: 760px) {
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.about-stat {
+  padding: 18px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  text-align: center;
+}
+.about-stat-value {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.about-stat-label {
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: var(--ink-dim);
+}

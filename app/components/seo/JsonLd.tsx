@@ -41,6 +41,7 @@ export function JsonLd() {
         '@id': `${siteConfig.url}/#business`,
         name: siteConfig.name,
         description: siteConfig.tagline,
+        foundingDate: siteConfig.foundedISODate,
         telephone: `+${siteConfig.whatsappNumber}`,
         priceRange: `${new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(siteConfig.price.amount)}/${siteConfig.price.period}`,
         url: siteConfig.url,
@@ -70,6 +71,15 @@ export function JsonLd() {
           name: item.question,
           acceptedAnswer: { '@type': 'Answer', text: item.answer },
         })),
+      },
+      {
+        '@type': 'AboutPage',
+        '@id': `${siteConfig.url}/tentang/#about`,
+        url: `${siteConfig.url}/tentang`,
+        name: `Tentang ${siteConfig.name}`,
+        description:
+          'Reseller TradingView Premium terpercaya di Indonesia sejak Maret 2025 - kenapa kami ada, masalah yang kami selesaikan, dan buktinya.',
+        mainEntity: { '@id': `${siteConfig.url}/#business` },
       },
     ],
   };
