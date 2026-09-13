@@ -50,6 +50,10 @@ export const siteConfig: SiteConfig = {
     'harga tradingview premium indonesia',
   ],
   ogImagePath: '/asset/og-image.jpg',
+  hero: {
+    tags: ['Backtest', 'Replay Mode', 'Multi Chart'],
+    imageSrc: '/asset/hero-illustration.png',
+  },
 };
 
 /** Link wa.me yang sudah diformat dari nomor di atas. */
