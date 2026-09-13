@@ -72,10 +72,13 @@ export function TestimonialSpotlight() {
                     fallbackClassName="spotlight-photo-fallback"
                     className="spotlight-photo"
                   />
-                </div>
-                <div className="spotlight-caption">
-                  <div className="spotlight-date">{t.dateYear}</div>
-                  <p className="spotlight-message">{t.message}</p>
+                  {/* Caption sekarang jadi overlay langsung di atas foto (gradient
+                      scrim), bukan kotak warna terpisah di bawahnya - supaya area
+                      foto terasa menyatu dan lebih luas. */}
+                  <div className="spotlight-caption">
+                    <div className="spotlight-date">{t.dateYear}</div>
+                    <p className="spotlight-message">{t.message}</p>
+                  </div>
                 </div>
               </article>
             ))}

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
 import { GradientButton } from '@/app/components/ui/GradientButton';
 import { WhatsAppIcon } from '@/app/components/ui/Icons';
 import { siteConfig, whatsappBaseUrl } from '@/lib/config/site';
@@ -45,21 +44,30 @@ export function Navbar() {
           ))}
         </div>
 
-        <Link href={whatsappBaseUrl} target="_blank" rel="noopener noreferrer" className="nav-pill">
-          Kontak
-        </Link>
-        <GradientButton href="#order" size="sm">
-          Order
-        </GradientButton>
+        {/* Kontak + Order hanya tampil di desktop (nav-links teks sudah
+            cukup di sana). Di mobile, keduanya digantikan oleh tombol teks
+            "JEKI TV 195k" di bawah - lihat .nav-actions-desktop &
+            .nav-jeki-toggle di globals.css. */}
+        <div className="nav-actions-desktop">
+          <Link href={whatsappBaseUrl} target="_blank" rel="noopener noreferrer" className="nav-pill">
+            Kontak
+          </Link>
+          <GradientButton href="#order" size="sm">
+            Order
+          </GradientButton>
+        </div>
 
+        {/* Tombol ini menggantikan ikon hamburger + Kontak/Order di mobile:
+            teksnya "JEKI TV 195k", tapi tetap berfungsi membuka panel menu
+            (Langganan/Method/FAQ/WA) supaya navigasi mobile tidak hilang. */}
         <button
-          className="nav-toggle"
+          className="nav-jeki-toggle"
           aria-label={mobileOpen ? 'Tutup menu' : 'Buka menu'}
           aria-expanded={mobileOpen}
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
         >
-          {mobileOpen ? <X size={19} /> : <Menu size={19} />}
+          JEKI TV 195k
         </button>
       </nav>
 
