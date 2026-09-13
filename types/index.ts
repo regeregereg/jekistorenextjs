@@ -24,6 +24,11 @@ export interface SocialLinks {
   threads: string;
 }
 
+export interface HeroContent {
+  tags: string[];
+  imageSrc: string;
+}
+
 export interface SiteConfig {
   name: string;
   brandMark: string;
@@ -40,6 +45,7 @@ export interface SiteConfig {
   mapUrl: string;
   keywords: string[];
   ogImagePath: string;
+  hero: HeroContent;
 }
 
 export type MembershipVisualId = 'replay' | 'admin' | 'alert' | 'export' | 'guarantee';
@@ -82,6 +88,21 @@ export interface TestimonialVideo {
   quote: string;
   name: string;
   role: string;
+}
+
+/** Satu kartu di slider testimoni spotlight (section langsung setelah hero). */
+export interface SpotlightTestimonial {
+  id: string;
+  image: string;
+  customerName: string;
+  dateYear: string;
+  message: string;
+}
+
+/** Satu segmen teks; `bold` untuk kata/frasa yang ditebalkan di tengah kalimat. */
+export interface TextSegment {
+  text: string;
+  bold?: boolean;
 }
 
 export interface OrderRequest {
