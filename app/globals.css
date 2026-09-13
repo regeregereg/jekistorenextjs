@@ -825,26 +825,82 @@ p {
 }
 
 /* =========================================================================
-   MEMBERSHIP
+   MEMBERSHIP - TIMELINE MILESTONE
+   Gaya timeline vertikal: nomor bulat di rel kiri terhubung garis, garis
+   terisi progresif mengikuti scroll (lihat MembershipTimeline.tsx), tiap
+   nomor "menyala" saat kontennya masuk viewport (lihat
+   MembershipTimelineItem.tsx + .reveal untuk state .in).
    ========================================================================= */
-.member-grid {
+.member-timeline {
+  position: relative;
+  margin-top: 48px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-top: 44px;
+  gap: 56px;
 }
-.member-card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 30px 30px 0;
-  background: var(--panel);
+.member-rail-track {
+  position: absolute;
+  left: 19px;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  background: var(--line);
+  border-radius: 999px;
   overflow: hidden;
 }
-.member-num {
+.member-rail-fill {
+  width: 100%;
+  background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0.4));
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+.member-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+.member-node {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-mono), monospace;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
+  font-weight: 700;
   color: var(--ink-dim);
-  margin-bottom: 10px;
+  background: var(--bg);
+  border: 1.5px solid var(--line-hi);
+  transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease,
+    transform 0.5s ease;
+}
+.member-node.active {
+  background: #fff;
+  color: #0b0c0e;
+  border-color: #fff;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.1), 0 0 24px rgba(255, 255, 255, 0.35);
+  transform: scale(1.06);
+}
+.member-content {
+  flex: 1;
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.member-item.in .member-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+.member-big-num {
+  font-size: clamp(2.4rem, 9vw, 3.4rem);
+  line-height: 0.9;
+  color: var(--line-hi);
+  margin-bottom: 6px;
 }
 .member-title {
   font-family: var(--font-display), sans-serif;
@@ -858,22 +914,39 @@ p {
   line-height: 1.65;
   color: var(--ink-mid);
   max-width: 480px;
-  margin-bottom: 26px;
+  margin-bottom: 22px;
 }
 .mock-frame {
   position: relative;
   display: block;
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.85) 100%);
-  padding: 2.5px 2.5px 0;
-  margin: 0 -1px;
-  box-shadow: 0 -18px 40px -10px rgba(255, 255, 255, 0.08);
+  padding: 2.5px;
+  max-width: 480px;
 }
 .mock-inner {
   display: block;
   background: var(--panel-hi);
-  border-radius: 18px 18px 0 0;
+  border-radius: 18px;
   padding: 18px 18px 22px;
+}
+@media (max-width: 640px) {
+  .member-timeline {
+    gap: 44px;
+  }
+  .member-node {
+    width: 36px;
+    height: 36px;
+    font-size: 0.72rem;
+  }
+  .member-rail-track {
+    left: 15px;
+    top: 18px;
+    bottom: 18px;
+  }
+  .member-item {
+    gap: 16px;
+  }
 }
 
 /* mockup 01 - replay */
