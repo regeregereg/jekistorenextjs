@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Instagram, Youtube } from 'lucide-react';
 import { WhatsAppIcon, TikTokIcon, ThreadsIcon } from '@/app/components/ui/Icons';
 import { siteConfig, whatsappBaseUrl } from '@/lib/config/site';
@@ -40,9 +39,9 @@ export function Footer() {
             <div className="footer-col">
               <h5>Tentang</h5>
               {aboutLinks.map((link) => (
-                <Link key={link.label} href={link.href}>
+                <a key={link.label} href={link.href}>
                   {link.label}
-                </Link>
+                </a>
               ))}
             </div>
             <div className="footer-col">
