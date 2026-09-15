@@ -20,8 +20,8 @@ import './globals.css';
 
 const generalSans = localFont({
   src: [
-    { path: './fonts/GeneralSans-Regular.ttf', weight: '400', style: 'normal' },
-    { path: './fonts/GeneralSans-Bold.ttf', weight: '700', style: 'normal' },
+    { path: './fonts/GeneralSans-Regular.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/GeneralSans-Bold.woff2', weight: '700', style: 'normal' },
   ],
   variable: '--font-general-sans',
   display: 'swap',

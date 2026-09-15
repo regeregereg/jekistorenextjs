@@ -48,6 +48,15 @@ const nextConfig = {
         source: '/:path*',
         headers: securityHeaders,
       },
+      {
+        // Aset statis (gambar testimoni, font, video) jarang berubah isinya
+        // di path yang sama - browser boleh simpan di cache selama setahun
+        // dan tidak perlu cek ulang ke server tiap kali. Ini yang bikin
+        // kunjungan ulang / refresh jadi jauh lebih cepat, karena aset
+        // besar (foto testimoni dkk) tidak didownload ulang tiap kali.
+        source: '/:all*(svg|jpg|jpeg|png|gif|ico|webp|avif|woff|woff2|mp4)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
     ];
   },
 };

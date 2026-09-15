@@ -55,7 +55,6 @@ export function ImageWithFallback({
       alt={alt}
       className={className}
       style={fadeStyle}
-      unoptimized
       onError={() => setFailed(true)}
       onLoad={(event) => {
         setLoaded(true);
