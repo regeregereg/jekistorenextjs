@@ -10,16 +10,12 @@ import { siteConfig } from '@/lib/config/site';
 // runtime/build - build tidak bisa gagal gara-gara jaringan (lihat catatan
 // migrasi sebelumnya soal ini).
 //
-// - General Sans (body + heading) dimuat lewat next/font/local dari file
-//   .ttf yang disediakan langsung (app/fonts/) - dioptimasi otomatis oleh
-//   Next.js (subsetting, preload, tanpa FOUT), tanpa request eksternal.
-// - Anton (khusus headline besar hero & watermark dekoratif) dan
-//   JetBrains Mono (angka harga, label kecil) tetap lewat Fontsource,
-//   sama seperti sebelumnya.
-import '@fontsource/anton';
-import '@fontsource/jetbrains-mono/400.css';
-import '@fontsource/jetbrains-mono/500.css';
-import '@fontsource/jetbrains-mono/600.css';
+// Semua font (General Sans, Anton, JetBrains Mono) dimuat lewat
+// next/font/local dari file yang sudah ada di app/fonts/ - Next.js otomatis
+// preload + men-generate fallback font dengan metrik yang disamakan
+// (adjustFontFallback), jadi teks besar (headline hero, watermark, harga)
+// tidak lagi "kedip"/kosong sesaat di kunjungan pertama seperti waktu masih
+// dimuat lewat CSS import biasa (@fontsource).
 import './globals.css';
 
 const generalSans = localFont({
@@ -28,6 +24,24 @@ const generalSans = localFont({
     { path: './fonts/GeneralSans-Bold.ttf', weight: '700', style: 'normal' },
   ],
   variable: '--font-general-sans',
+  display: 'swap',
+});
+
+const anton = localFont({
+  src: './fonts/Anton-Regular.woff2',
+  weight: '400',
+  style: 'normal',
+  variable: '--font-anton',
+  display: 'swap',
+});
+
+const jetbrainsMono = localFont({
+  src: [
+    { path: './fonts/JetBrainsMono-Regular.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/JetBrainsMono-Medium.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/JetBrainsMono-SemiBold.woff2', weight: '600', style: 'normal' },
+  ],
+  variable: '--font-jetbrains-mono',
   display: 'swap',
 });
 
@@ -91,7 +105,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={generalSans.variable}>
+    <html lang="id" className={`${generalSans.variable} ${anton.variable} ${jetbrainsMono.variable}`}>
       <head>
         <JsonLd />
       </head>

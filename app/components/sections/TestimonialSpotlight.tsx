@@ -71,6 +71,7 @@ export function TestimonialSpotlight() {
                     fallbackLabel="Foto testimoni belum diunggah"
                     fallbackClassName="spotlight-photo-fallback"
                     className="spotlight-photo"
+                    priority={i === 0}
                   />
                   {/* Caption sekarang jadi overlay langsung di atas foto (gradient
                       scrim), bukan kotak warna terpisah di bawahnya - supaya area

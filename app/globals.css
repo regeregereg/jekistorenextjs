@@ -1,7 +1,7 @@
 /* =========================================================================
    DESIGN TOKENS
-   Palet, tipografi, dan ukuran dasar. Font family fisik dimuat sebagai
-   self-hosted @font-face lewat paket Fontsource (diimpor di app/layout.tsx);
+   Palet, tipografi, dan ukuran dasar. Semua font fisik dimuat sebagai
+   self-hosted lewat next/font/local (app/layout.tsx, file di app/fonts/);
    di sini hanya dipetakan ke variabel dengan fallback font sistem.
    ========================================================================= */
 :root {
@@ -12,8 +12,8 @@
      Hero.tsx & TestimonialSpotlight.tsx. */
   --font-body: var(--font-general-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-general-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-hero: 'Anton', ui-sans-serif, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+  --font-hero: var(--font-anton), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'SFMono-Regular', monospace;
 
   --bg: #0b0c0e;
   --panel: #131417;
