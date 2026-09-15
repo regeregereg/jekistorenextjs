@@ -39,7 +39,7 @@ export default function AboutPage() {
           <Reveal as="h1">Jeki Store</Reveal>
           <Reveal as="p" className="hero-sub" style={{ textAlign: 'left', margin: '18px 0 0', maxWidth: 640 }}>
             Reseller TradingView Premium yang bikin alat analisa trading lengkap kepake beneran oleh trader
-            Indonesia — bukan cuma buat yang modalnya besar.
+            Indonesia, bukan cuma buat yang modalnya besar.
           </Reveal>
         </div>
       </section>
@@ -56,17 +56,18 @@ export default function AboutPage() {
           </Reveal>
           <Reveal as="p" className="about-copy">
             TradingView Premium resmi ditagih dalam dolar dan biasanya mengikat langganan tahunan. Buat banyak
-            trader retail di Indonesia — apalagi yang masih belajar — itu jadi tembok besar sebelum sempat coba
-            dulu apakah Replay Mode atau indikator tanpa batas beneran membantu cara analisa mereka.
+            trader retail di Indonesia yang masih belajar, itu jadi tembok besar sebelum sempat coba dulu apakah
+            Replay Mode atau indikator tanpa batas beneran membantu cara analisa mereka.
           </Reveal>
           <Reveal as="p" className="about-copy" delay={0.05}>
-            Sejak {foundedLabel}, Jeki Store berdiri untuk motong tembok itu: akses akun private per pelanggan
-            (bukan shared), harga {new Intl.NumberFormat('id-ID', {
+            Sejak {foundedLabel}, Jeki Store berdiri untuk motong tembok itu. Setiap pelanggan dapat akun private
+            sendiri, bukan akun yang dipakai rame-rame, dengan harga{' '}
+            {new Intl.NumberFormat('id-ID', {
               style: 'currency',
               currency: 'IDR',
               maximumFractionDigits: 0,
-            }).format(siteConfig.price.amount)}
-            /bulan, tanpa komitmen tahunan.
+            }).format(siteConfig.price.amount)}{' '}
+            per bulan, tanpa perlu komitmen tahunan.
           </Reveal>
         </div>
       </section>
@@ -108,9 +109,11 @@ export default function AboutPage() {
             kecewa beli produk digital.
           </Reveal>
           <Reveal as="p" className="about-copy">
-            Karena itu kami pilih transparan: akun private sendiri (bukan shared), garansi aktif selama masa
-            langganan, dan admin yang bisa dichat langsung — bukan bot — di jam {siteConfig.operatingHours.openTime}
-            –{siteConfig.operatingHours.closeTime} {siteConfig.operatingHours.timezone}.
+            Kami tahu banyak yang pernah kecewa beli produk digital, makanya kami pilih jalan yang lebih
+            transparan. Akun yang kamu pakai benar-benar punya kamu sendiri, ada garansi selama masa langganan
+            aktif, dan kalau ada kendala bisa langsung chat admin asli setiap hari jam{' '}
+            {siteConfig.operatingHours.openTime}–{siteConfig.operatingHours.closeTime}{' '}
+            {siteConfig.operatingHours.timezone}.
           </Reveal>
           <div className="about-stats">
             {aboutStats.map((stat) => (
