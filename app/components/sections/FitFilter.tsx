@@ -3,7 +3,13 @@ import { GradientButton } from '@/app/components/ui/GradientButton';
 import { WhatsAppIcon } from '@/app/components/ui/Icons';
 import { Reveal } from '@/app/components/ui/Reveal';
 
-const notFor = ['Cuma coba-coba.', 'Ingin mendapatkan "indikator sakti".', 'Tidak mau chat di jam aktif.'];
+const notFor = [
+  'Tidak mau menunggu proses pembuatan akun.',
+  'Tidak sabaran, misalnya di hari itu ada antrian.',
+  'Cuma coba-coba.',
+  'Ingin mendapatkan "indikator sakti".',
+  'Tidak mau chat di jam aktif.',
+];
 
 const goodFit = [
   'Serius backtest dan analisa dengan data lengkap.',

@@ -6,7 +6,7 @@ import { Reveal } from '@/app/components/ui/Reveal';
 import { WhatsAppIcon } from '@/app/components/ui/Icons';
 import { siteConfig } from '@/lib/config/site';
 import { formatRupiah } from '@/lib/format';
-import { methodOptions } from '@/lib/data/methods';
+import { methodOptions, orderChecklist } from '@/lib/data/methods';
 import { buildOrderMessage, buildWhatsAppUrl } from '@/lib/whatsapp';
 import { trackEvent } from '@/lib/analytics';
 import { useOrderForm } from './OrderFormProvider';
@@ -16,6 +16,7 @@ const priceInclusions = [
   'Garansi penggantian gratis',
   `Admin responsif ${siteConfig.operatingHours.openTime}–${siteConfig.operatingHours.closeTime} ${siteConfig.operatingHours.timezone}`,
   'Pembayaran via QRIS',
+  'Akun dibuatkan admin, tanpa Gmail baru',
 ];
 
 export function PricingOrder() {
@@ -103,7 +104,7 @@ export function PricingOrder() {
               />
             </div>
             <div className="form-field">
-              <label>Pilih Method</label>
+              <label>{methodOptions.length > 1 ? 'Pilih Method' : 'Method'}</label>
               <div className="method-select">
                 {methodOptions.map((method) => (
                   <div className="method-opt" key={method.id}>
@@ -118,7 +119,7 @@ export function PricingOrder() {
                     <label htmlFor={`m${method.id}`} className="method-opt-label">
                       <div className="radio-dot" />
                       <span>
-                        Method {method.id} — {method.name === 'PC Premium' ? 'PC/Laptop' : method.name}
+                        Method {method.id} — {method.name === 'PC Premium' ? 'PC/Laptop/Mac' : method.name}
                       </span>
                       <div className="method-opt-check">
                         <Check size={11} />
@@ -127,18 +128,19 @@ export function PricingOrder() {
                   </div>
                 ))}
               </div>
-              <p className="gmail-note">Setiap method membutuhkan Gmail baru yang belum terdaftar di TradingView.</p>
 
-              {/* Ringkasan beda tiap method langsung di sini, diambil dari
-                  data yang sama dengan section #method - jadi user tidak
-                  perlu scroll balik ke atas untuk tahu bedanya. */}
+              {/* Syarat method yang dipilih, supaya pembeli paham sebelum chat
+                  admin (PC only, estimasi 6-8 jam, akun dibuatkan admin). */}
               {selectedMethod ? (
                 <div className="method-hint" aria-live="polite">
                   <p className="method-hint-fit">
-                    <strong>{selectedMethod.name}</strong> cocok buat kamu yang {selectedMethod.fitDescription}
+                    <strong>Sebelum order, pastikan ya:</strong>
                   </p>
-                  {selectedMethod.pros[0] ? <p className="method-hint-pro">✓ {selectedMethod.pros[0]}</p> : null}
-                  {selectedMethod.cons[0] ? <p className="method-hint-con">⚠ {selectedMethod.cons[0]}</p> : null}
+                  <ul className="method-hint-list">
+                    {orderChecklist.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
               ) : null}
             </div>
@@ -154,7 +156,7 @@ export function PricingOrder() {
               Order via WhatsApp
             </button>
             <p className="widget-note">
-              Proses &lt; 1 jam · Layanan {siteConfig.operatingHours.openTime}–{siteConfig.operatingHours.closeTime}{' '}
+              Pembuatan akun 6–8 jam · Layanan {siteConfig.operatingHours.openTime}–{siteConfig.operatingHours.closeTime}{' '}
               {siteConfig.operatingHours.timezone}
             </p>
           </form>

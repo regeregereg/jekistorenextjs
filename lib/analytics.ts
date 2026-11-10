@@ -6,7 +6,7 @@
  *
  * Titik pemanggilan yang sudah disiapkan di kode:
  *  - "cta_order_click"   -> setiap tombol "Order Sekarang" ditekan
- *  - "method_selected"   -> saat memilih Method 1/2 di section Method
+ *  - "method_selected"   -> saat memilih method di section Method
  *  - "order_whatsapp_submit" -> saat form order dikirim ke WhatsApp
  *  - "testimonial_expand"    -> saat "Lihat testimoni lainnya" ditekan
  */

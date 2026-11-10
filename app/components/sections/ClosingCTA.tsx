@@ -15,7 +15,7 @@ export function ClosingCTA() {
           <br />
           bukan setengah-setengah.
         </Reveal>
-        <Reveal as="p">Proses cepat, garansi aktif, admin responsif.</Reveal>
+        <Reveal as="p">Akun private, garansi aktif, admin responsif.</Reveal>
         <div style={{ marginTop: 20, display: 'inline-block' }}>
           <GradientButton href="#order">
             <WhatsAppIcon />

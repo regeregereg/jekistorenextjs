@@ -33,7 +33,8 @@ function getMethodLabel(methodId: number): string {
 /** Menyusun pesan order yang siap dikirim ke WhatsApp admin. */
 export function buildOrderMessage({ name, methodId }: OrderRequest): string {
   const priceLabel = `${formatRupiah(siteConfig.price.amount)} / ${siteConfig.price.period}`;
-  const gmailNote = '\n📧 *Akan menyiapkan Gmail baru* yang belum terdaftar di TradingView.';
+  const processNote =
+    '\n⏳ *Paham:* akun dibuatkan admin (tanpa Gmail baru), estimasi 6–8 jam atau lebih cepat jika tidak ada antrian. Apakah ada stok ready?';
   const sourceNote = `\n📍 *Sumber:* ${getTrafficSource()}`;
 
   return [
@@ -42,7 +43,7 @@ export function buildOrderMessage({ name, methodId }: OrderRequest): string {
     `*Nama:* ${name}`,
     `*Method:* ${getMethodLabel(methodId)}`,
     `*Harga:* ${priceLabel}`,
-  ].join('\n') + gmailNote + sourceNote + '\n\nMohon bantuannya ya kak! 😊';
+  ].join('\n') + processNote + sourceNote + '\n\nMohon bantuannya ya kak! 😊';
 }
 
 /** Membuat URL wa.me lengkap dengan teks yang sudah di-encode. */

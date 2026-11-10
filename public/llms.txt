@@ -13,7 +13,7 @@ Jeki Store membantu trader retail di Indonesia (saham, forex, XAUUSD, crypto) ya
 - Admin support langsung (bukan bot), aktif 08.00-22.00 WIB
 
 ## Cara akses
-Dua pilihan method: Method 1 (PC/Laptop/Mac saja) untuk yang analisa utamanya di PC, atau Method 2 (PC + HP/tablet) untuk yang butuh akses dari HP juga. Pembayaran via QRIS, proses aktivasi umumnya di bawah 1 jam.
+Saat ini tersedia satu method: Method 1 (PC/Laptop/Mac via browser, tidak bisa di HP atau tablet). Akun private, satu pembeli satu akun, dibuatkan oleh admin sehingga tidak perlu Gmail baru. Pembayaran via QRIS. Pembuatan akun sekitar 6-8 jam, bisa lebih cepat jika tidak ada antrian atau ada stok ready.
 
 ## Fakta singkat
 - Berdiri sejak Maret 2025

@@ -15,7 +15,7 @@ const foundedLabel = new Intl.DateTimeFormat('id-ID', { month: 'long', year: 'nu
 const aboutStats = [
   { value: `${siteConfig.rating.value}★`, label: `dari ${siteConfig.rating.count}+ ulasan pelanggan` },
   { value: foundedLabel, label: 'berdiri, terus melayani sampai sekarang' },
-  { value: '< 1 jam', label: 'rata-rata proses aktivasi akun' },
+  { value: '6–8 jam', label: 'estimasi pembuatan akun, bisa lebih cepat tanpa antrian' },
   { value: `${testimonialPhotos.length}+`, label: 'testimoni asli dari pelanggan' },
 ];
 

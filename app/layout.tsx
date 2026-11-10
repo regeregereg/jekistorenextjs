@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title,
     description:
-      'Akses penuh TradingView Premium: Replay Mode semua timeframe, indikator tak terbatas, alert realtime. Harga terjangkau, proses <1 jam, garansi aktif.',
+      'Akses penuh TradingView Premium: Replay Mode semua timeframe, indikator tak terbatas, alert realtime. Harga terjangkau, akun private, garansi aktif.',
     url: siteConfig.url,
     images: [{ url: siteConfig.ogImagePath, width: 1200, height: 630 }],
     locale: 'id_ID',
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title,
-    description: 'Akses penuh TradingView Premium harga terjangkau. Proses <1 jam, garansi aktif. Order via WhatsApp.',
+    description: 'Akses penuh TradingView Premium harga terjangkau. Akun private, garansi aktif. Order via WhatsApp.',
     images: [siteConfig.ogImagePath],
   },
   other: {

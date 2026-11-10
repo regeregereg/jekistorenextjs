@@ -2,8 +2,9 @@ import type { MethodOption } from '@/types';
 
 /**
  * Opsi method akses yang ditawarkan di section #method dan dipakai lagi
- * di form order (#order). Menambah Method 3 nanti tinggal push object baru
- * di sini - dropdown & kartu akan otomatis render.
+ * di form order (#order). Saat ini hanya Method 1 yang tersedia. Kalau nanti
+ * ada method baru, tinggal push object baru di sini - kartu & form order
+ * otomatis menyesuaikan (form menampilkan pilihan radio lagi kalau > 1 method).
  */
 export const methodOptions: MethodOption[] = [
   {
@@ -11,38 +12,36 @@ export const methodOptions: MethodOption[] = [
     code: 'METHOD 01',
     name: 'PC Premium',
     featured: true,
-    recommendedLabel: '★ Paling Direkomendasikan',
-    fitDescription: 'kamu analisa & trading utamanya di PC/laptop.',
+    fitDescription: 'kamu analisa & trading utamanya di PC/laptop/Mac.',
     pros: [
       'Login via browser (bisa di Mac)',
-      'Setingan chart dibantu disamakan tiap perpanjangan bulan berikutnya',
-      'Paling direkomendasikan',
+      'Akun private. Satu pembeli, satu akun',
+      'Tidak perlu siapkan Gmail baru, admin yang bantu buatkan',
     ],
     cons: [
-      'Hanya bisa dari laptop/PC/Mac saja',
-      'Butuh Gmail baru yang belum pernah terdaftar di TradingView',
+      'Hanya bisa dari laptop/PC/Mac, tidak bisa di HP maupun tablet',
+      'Pembuatan akun sekitar 6–8 jam, bisa lebih cepat kalau tidak ada antrian',
+      'Tanya admin dulu, siapa tahu ada stok ready dan bisa langsung dipakai',
     ],
-  },
-  {
-    id: 2,
-    code: 'METHOD 02',
-    name: 'PC + HP',
-    fitDescription: 'kamu tetap butuh akses dari HP selain PC/laptop.',
-    pros: [
-      'Akses dari PC + HP/tablet (via browser)',
-      'Setingan chart dibantu disamakan tiap perpanjangan bulan berikutnya',
-      'Jarang sekali kena back basic (awet 30 hari)',
-      'Bisa dipakai di 2 device sekaligus',
-    ],
-    cons: [
-      'Login tetap lewat browser, bukan aplikasi',
-      'Cukup ribet di login pertama kali karena pakai sistem cookies',
-      'Banyak yang awalnya ngerasa ribet, tapi setelah itu awet 30 hari tanpa perlu ganti-ganti akun',
-      'Butuh Gmail baru yang belum pernah terdaftar di TradingView',
-    ],
-    adviceNote:
-      'kalau kamu ada laptop/PC dan nggak wajib akses HP, Method 1 lebih mudah karena login-nya tidak melalui cookies seperti Method 2. Sesuaikan kebutuhan dan preferensi kamu.',
   },
 ];
 
 export const defaultMethodId = methodOptions[0]?.id ?? 1;
+
+/**
+ * Poin yang ditampilkan di form order supaya pembeli paham syaratnya
+ * sebelum chat admin. Satu sumber, dipakai di PricingOrder.
+ */
+export const orderChecklist: string[] = [
+  'Hanya untuk PC/laptop/Mac, tidak bisa di HP atau tablet.',
+  'Pembuatan akun sekitar 6–8 jam, bisa lebih cepat kalau tidak ada antrian.',
+  'Tidak perlu Gmail baru, admin yang buatkan akunnya.',
+  'Tanya admin dulu, siapa tahu ada stok ready.',
+];
+
+/** Langkah proses yang divisualkan di kartu method. */
+export const processSteps = [
+  { label: 'Bayar & kirim bukti', note: 'via QRIS' },
+  { label: 'Admin buatkan akun', note: '6–8 jam, bisa lebih cepat' },
+  { label: 'Akun aktif', note: 'login via browser PC' },
+];

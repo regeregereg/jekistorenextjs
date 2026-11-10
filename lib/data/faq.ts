@@ -9,24 +9,25 @@ export const faqItems: FaqItem[] = [
   {
     question: 'Apakah ini aman dan terpercaya?',
     answer:
-      'Aman, kak. Setiap pembeli mendapat akun private sendiri, bukan shared. Garansi aktif selama masa langganan. Ada kendala, langsung chat admin.',
+      'Aman, kak. Setiap pembeli mendapat akun private sendiri, bukan shared. Satu pembeli satu akun. Garansi aktif selama masa langganan. Ada kendala, langsung chat admin.',
   },
   {
-    question: 'Berapa lama proses setelah bayar?',
+    question: 'Berapa lama proses pembuatan akun?',
     answer:
-      'Normalnya kurang dari 1 jam. Order setelah pukul 22.00 WIB diproses keesokan hari pukul 08.00 WIB.',
+      'Sekitar 6–8 jam, dan bisa lebih cepat kalau tidak ada antrian. Tanya admin dulu, siapa tahu ada stok ready yang bisa langsung dipakai.',
   },
   {
     question: 'Metode pembayaran apa yang tersedia?',
     answer: 'Saat ini via QRIS. Bukti pembayaran dikirim ke admin lewat WhatsApp.',
   },
   {
-    question: 'Method mana yang cocok untuk saya?',
-    answer: 'Punya PC atau laptop, pilih Method 1. Butuh akses HP juga, pilih Method 2.',
+    question: 'Method mana yang tersedia?',
+    answer:
+      'Saat ini hanya Method 1, khusus PC/laptop/Mac lewat browser. Belum bisa dipakai di HP maupun tablet.',
   },
   {
-    question: 'Apakah setting chart bisa disimpan?',
-    answer: 'Untuk Method 1 dan 2, setting dan layout bisa disamakan saat perpanjangan langganan.',
+    question: 'Apakah saya perlu menyiapkan Gmail baru?',
+    answer: 'Tidak perlu. Akun dibuatkan oleh admin, kamu tinggal menunggu dan login setelah akun siap.',
   },
   {
     question: 'Apakah ada paket tahunan?',
