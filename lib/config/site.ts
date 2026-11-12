@@ -28,8 +28,8 @@ export const siteConfig: SiteConfig = {
     period: 'bulan',
   },
   operatingHours: {
-    openTime: '08:00',
-    closeTime: '22:00',
+    openTime: '19:00',
+    closeTime: '23:57',
     timezone: 'WIB',
   },
   foundedISODate: '2025-03-01',
