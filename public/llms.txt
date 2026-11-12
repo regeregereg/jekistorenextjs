@@ -10,7 +10,7 @@ Jeki Store membantu trader retail di Indonesia (saham, forex, XAUUSD, crypto) ya
 - Alert realtime tanpa limit
 - Export chart & data resolusi tinggi, semua pair
 - Akun private per pelanggan (bukan shared), dengan garansi penggantian selama masa langganan aktif
-- Admin support langsung (bukan bot), aktif 08.00-22.00 WIB
+- Admin support langsung (bukan bot), aktif 19.00-23.57 WIB
 
 ## Cara akses
 Saat ini tersedia satu method: Method 1 (PC/Laptop/Mac via browser, tidak bisa di HP atau tablet). Akun private, satu pembeli satu akun, dibuatkan oleh admin sehingga tidak perlu Gmail baru. Pembayaran via QRIS. Pembuatan akun sekitar 6-8 jam, bisa lebih cepat jika tidak ada antrian atau ada stok ready.
