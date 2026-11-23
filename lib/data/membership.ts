@@ -8,9 +8,9 @@ export const membershipFeatures: MembershipFeature[] = [
   {
     id: 'replay-mode',
     number: '01',
-    title: 'Replay Mode Tanpa Batas',
+    title: 'Replay Mode di Semua Timeframe',
     description:
-      'Backtest strategi kamu di semua timeframe, hingga 25 ribu bar ke belakang, bukan cuma preview terbatas seperti versi gratis.',
+      'Backtest strategi kamu di semua timeframe sampai ke detik, bukan cuma terbatas seperti di versi gratis. Cocok untuk latihan membaca chart di awal belajar.',
     visual: 'replay',
   },
   {
@@ -24,7 +24,7 @@ export const membershipFeatures: MembershipFeature[] = [
   {
     id: 'realtime-alert',
     number: '03',
-    title: 'Alert Realtime Tanpa Limit',
+    title: 'Alert Realtime',
     description:
       'Set alert di banyak harga sekaligus. Notifikasi langsung masuk saat momen entry tiba, jadi tidak ada lagi harga terlewat.',
     visual: 'alert',
@@ -32,9 +32,9 @@ export const membershipFeatures: MembershipFeature[] = [
   {
     id: 'export-data',
     number: '04',
-    title: 'Export Chart & Data XAUUSD',
+    title: 'Export Chart & Data',
     description:
-      'Butuh screenshot chart resolusi tinggi atau data candle mentah buat riset dan dokumentasi? Export langsung dari TradingView Premium, semua pair, tanpa batas.',
+      'Butuh screenshot chart resolusi tinggi atau data candle mentah buat riset dan dokumentasi? Export langsung dari TradingView Premium.',
     visual: 'export',
   },
   {

@@ -26,8 +26,7 @@ export function getTrafficSource(): string {
 function getMethodLabel(methodId: number): string {
   const method = methodOptions.find((m) => m.id === methodId);
   if (!method) return `Method ${methodId}`;
-  const suffix = method.name.includes('HP') ? 'PC + HP via browser' : 'PC / Laptop only';
-  return `${method.code.replace('METHOD 0', 'Method ')} (${suffix})`;
+  return `${method.code.replace('METHOD 0', 'Method ')} (${method.name}, via browser)`;
 }
 
 /** Menyusun pesan order yang siap dikirim ke WhatsApp admin. */

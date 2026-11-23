@@ -17,8 +17,8 @@ export const siteConfig: SiteConfig = {
   brandMark: 'J',
   legalName: 'Jeki Store',
   description:
-    'TradingView Premium Rp 195.000/bulan di Jeki Store. Replay Mode semua timeframe, indikator tak terbatas, alert realtime. Akun private, garansi aktif.',
-  tagline: 'Reseller TradingView Premium terpercaya di Indonesia sejak Maret 2025.',
+    'Jeki Store membantu pemula yang sedang belajar trading memakai Replay Mode untuk backtest di semua timeframe, indikator lebih dari 3, dan alert. Rp195.000/bulan.',
+  tagline: 'Membantu pemula yang sedang belajar trading dengan tools dan jasa yang terjangkau.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://jekistore.com',
   whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '6283119686482').replace(/\D/g, ''),
   price: {
@@ -33,7 +33,7 @@ export const siteConfig: SiteConfig = {
     timezone: 'WIB',
   },
   foundedISODate: '2025-03-01',
-  rating: { value: 4.9, count: 50 },
+  rating: { value: 4.9, count: 100 },
   social: {
     whatsapp: 'https://wa.me/6283119686482',
     instagram: 'https://www.instagram.com/clipjekistore',
@@ -43,11 +43,12 @@ export const siteConfig: SiteConfig = {
   },
   mapUrl: 'https://maps.app.goo.gl/Cc3kD7rStS1efY7X6',
   keywords: [
-    'tradingview premium murah indonesia',
-    'beli tradingview premium',
-    'tradingview premium reseller indonesia',
+    'tradingview untuk pemula',
+    'belajar backtest replay mode',
+    'replay mode semua timeframe',
+    'tradingview premium terjangkau untuk pemula',
     'jeki store tradingview',
-    'harga tradingview premium indonesia',
+    'tools belajar trading pemula',
   ],
   ogImagePath: '/asset/og-image.jpg',
   hero: {

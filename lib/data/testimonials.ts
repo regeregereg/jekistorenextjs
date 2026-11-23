@@ -1,4 +1,4 @@
-import type { TestimonialPhoto, TestimonialVideo, SpotlightTestimonial, TextSegment } from '@/types';
+import type { TestimonialPhoto, TestimonialVideo, SpotlightTestimonial, StoryBlock } from '@/types';
 
 /**
  * Data testimoni. Foto & video mengacu ke file di /public/testigaleri,
@@ -116,30 +116,51 @@ export const spotlightTestimonials: SpotlightTestimonial[] = [
  * potongan teks dengan `bold: true` untuk kata/frasa yang ditebalkan -
  * supaya format penekanan tetap bisa diedit dari data, bukan dari JSX.
  */
-export const founderStory: TextSegment[][] = [
-  [
-    { text: 'Mimin pernah mendapatkan pengalaman yang ' },
-    { text: 'kurang menyenangkan', bold: true },
-    { text: ', ketika beli product digital di ' },
-    { text: 'toko oren', bold: true },
-    { text: '.' },
-  ],
-  [
-    { text: 'Mereka claim bahwasanya ' },
-    { text: 'garansi', bold: true },
-    { text: ' dan apabila ada kendala mereka bantu, tapi nyatanya ' },
-    { text: 'respon', bold: true },
-    { text: ' mereka ' },
-    { text: 'begitu lambat', bold: true },
-    { text: ', mimin seperti di ' },
-    { text: 'tidak dipedulikan', bold: true },
-    { text: ', padahal kita percaya ke mereka.' },
-  ],
-  [
-    { text: 'Mulai saat itu, saya berfikir kalau saya suatu saat nanti ' },
-    { text: 'berjualan', bold: true },
-    { text: ', jasa atau apapun mimin ' },
-    { text: 'tidak ingin seperti mereka', bold: true },
-    { text: '.' },
-  ],
+export const founderStory: StoryBlock[] = [
+  {
+    type: 'p',
+    segments: [
+      { text: 'Banyak di antara kamu pasti punya pengalaman ' },
+      { text: 'kurang menyenangkan', bold: true },
+      { text: ' belanja suatu product atau jasa di ' },
+      { text: 'toko oren', bold: true },
+      { text: '. ' },
+      { text: 'TERMASUK MIMIN!', bold: true },
+    ],
+  },
+  {
+    type: 'list',
+    items: [
+      [
+        { text: 'Respon', bold: true },
+        { text: ' mereka ' },
+        { text: 'begitu lambat', bold: true },
+        { text: ' ketika ada kendala. Buruknya malah ' },
+        { text: 'tidak direspon sama sekali', bold: true },
+        { text: '.' },
+      ],
+      [
+        { text: 'Kadang apa yang mereka tawarkan ' },
+        { text: 'tidak sesuai dengan faktanya', bold: true },
+        { text: '.' },
+      ],
+      [
+        { text: 'Kurangnya ' },
+        { text: 'transparansi', bold: true },
+        { text: ' di awal. Apa sih kekurangannya? Dan apa sih kelebihannya?' },
+      ],
+    ],
+  },
+  {
+    type: 'p',
+    segments: [
+      { text: 'Dari masalah-masalah itu dan pengalaman mimin ' },
+      { text: 'SEBAGAI PEMBELI', bold: true },
+      { text: ', di sinilah ' },
+      { text: 'Jeki Store hadir', bold: true },
+      { text: ', untuk menyelesaikan ' },
+      { text: 'MASALAH TERSEBUT', bold: true },
+      { text: '.' },
+    ],
+  },
 ];
