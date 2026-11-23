@@ -5,7 +5,7 @@ import { FloatingWhatsApp } from '@/app/components/layout/FloatingWhatsApp';
 import { Reveal } from '@/app/components/ui/Reveal';
 import { WhatsAppIcon } from '@/app/components/ui/Icons';
 import { siteConfig, whatsappBaseUrl } from '@/lib/config/site';
-import { membershipFeatures } from '@/lib/data/membership';
+import { disclaimerPoints, problemsSolved } from '@/lib/data/mission';
 import { testimonialPhotos } from '@/lib/data/testimonials';
 
 const foundedLabel = new Intl.DateTimeFormat('id-ID', { month: 'long', year: 'numeric' }).format(
@@ -22,7 +22,7 @@ const aboutStats = [
 export const metadata = {
   title: 'Tentang Kami',
   description:
-    'Jeki Store adalah reseller TradingView Premium terpercaya di Indonesia sejak Maret 2025. Kenali kenapa kami ada, masalah apa yang kami selesaikan, dan siapa saja yang sudah terbantu.',
+    'Misi Jeki Store: membantu pemula yang sedang belajar trading dengan budget terbatas. Kenali kenapa kami ada, masalah apa yang kami selesaikan, dan siapa yang sebaiknya langganan langsung di TradingView.',
   alternates: { canonical: '/tentang' },
 };
 
@@ -38,8 +38,8 @@ export default function AboutPage() {
           </Reveal>
           <Reveal as="h1">Jeki Store</Reveal>
           <Reveal as="p" className="hero-sub" style={{ textAlign: 'left', margin: '18px 0 0', maxWidth: 640 }}>
-            Reseller TradingView Premium yang bikin alat analisa trading lengkap kepake beneran oleh trader
-            Indonesia, bukan cuma buat yang modalnya besar.
+            Layanan untuk pemula yang sedang belajar trading, supaya bisa memakai tools seperti Replay Mode untuk
+            backtest tanpa terhambat budget.
           </Reveal>
         </div>
       </section>
@@ -50,24 +50,23 @@ export default function AboutPage() {
             Kenapa Kami Ada
           </Reveal>
           <Reveal as="h2">
-            Chart lengkap harusnya bukan
+            Membantu pemula yang
             <br />
-            cuma buat yang mampu bayar dolar.
+            sedang belajar.
           </Reveal>
           <Reveal as="p" className="about-copy">
-            TradingView Premium resmi ditagih dalam dolar dan biasanya mengikat langganan tahunan. Buat banyak
-            trader retail di Indonesia yang masih belajar, itu jadi tembok besar sebelum sempat coba dulu apakah
-            Replay Mode atau indikator tanpa batas beneran membantu cara analisa mereka.
+            Misi Jeki Store adalah membantu pemula yang sedang belajar dengan menyediakan tools, jasa, atau service
+            yang membantu proses belajar di awal, supaya bisa memakai Replay Mode untuk backtest di semua timeframe
+            dan fitur lainnya.
           </Reveal>
           <Reveal as="p" className="about-copy" delay={0.05}>
-            Sejak {foundedLabel}, Jeki Store berdiri untuk motong tembok itu. Setiap pelanggan dapat akun private
-            sendiri, bukan akun yang dipakai rame-rame, dengan harga{' '}
+            Sejak {foundedLabel}, setiap pelanggan mendapat akun private sendiri dengan harga{' '}
             {new Intl.NumberFormat('id-ID', {
               style: 'currency',
               currency: 'IDR',
               maximumFractionDigits: 0,
             }).format(siteConfig.price.amount)}{' '}
-            per bulan, tanpa perlu komitmen tahunan.
+            per bulan. Kami fokus ke pemula dengan budget terbatas, karena kami paham kondisi itu.
           </Reveal>
         </div>
       </section>
@@ -78,19 +77,45 @@ export default function AboutPage() {
             Yang Kami Selesaikan
           </Reveal>
           <Reveal as="h2">
-            Keluhan yang paling sering
+            Masalah yang pernah kami alami
             <br />
-            kami dengar dari pelanggan.
+            sebagai pembeli.
           </Reveal>
           <div className="about-solve-grid">
-            {membershipFeatures.map((feature, i) => (
-              <Reveal as="div" className="about-solve-item" key={feature.id} delay={i * 0.05}>
+            {problemsSolved.map((item, i) => (
+              <Reveal as="div" className="about-solve-item" key={item.problem} delay={i * 0.05}>
                 <span className="ck-badge">
                   <Check size={11} />
                 </span>
                 <div>
-                  <div className="about-solve-title">{feature.title}</div>
-                  <p className="about-solve-desc">{feature.description}</p>
+                  <div className="about-solve-title">{item.problem}</div>
+                  <p className="about-solve-desc">{item.solution}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <Reveal as="div" className="eyebrow">
+            Disclaimer
+          </Reveal>
+          <Reveal as="h2">
+            Jeki Store bukan untuk
+            <br />
+            semua orang.
+          </Reveal>
+          <div className="about-solve-grid">
+            {disclaimerPoints.map((point, i) => (
+              <Reveal as="div" className="about-solve-item" key={point.title} delay={i * 0.05}>
+                <span className="ck-badge">
+                  <Check size={11} />
+                </span>
+                <div>
+                  <div className="about-solve-title">{point.title}</div>
+                  <p className="about-solve-desc">{point.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -128,8 +153,8 @@ export default function AboutPage() {
 
       <section className="closing">
         <div className="container">
-          <Reveal as="h2">Siap coba sendiri?</Reveal>
-          <Reveal as="p">Order sekarang, aktif dalam hitungan menit.</Reveal>
+          <Reveal as="h2">Sedang belajar dan butuh tools-nya?</Reveal>
+          <Reveal as="p">Akun dibuatkan admin sekitar 6–8 jam, bisa lebih cepat kalau tidak ada antrian.</Reveal>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 20 }}>
             <a href="/#order" className="method-cta" style={{ minWidth: 180 }}>
               Lihat Harga & Order

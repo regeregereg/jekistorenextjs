@@ -4,6 +4,7 @@ import { WhatsAppIcon } from '@/app/components/ui/Icons';
 import { Reveal } from '@/app/components/ui/Reveal';
 
 const notFor = [
+  'Sudah mahir dan punya budget cukup. Lebih baik langganan pribadi di TradingView (paket Essential).',
   'Tidak mau menunggu proses pembuatan akun.',
   'Tidak sabaran, misalnya di hari itu ada antrian.',
   'Cuma coba-coba.',
@@ -12,6 +13,7 @@ const notFor = [
 ];
 
 const goodFit = [
+  'Pemula yang sedang benar-benar belajar dengan budget terbatas.',
   'Serius backtest dan analisa dengan data lengkap.',
   'Butuh Replay Mode untuk mengasah strategi.',
   'Mau harga masuk akal dengan garansi yang dipakai.',

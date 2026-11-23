@@ -2,7 +2,7 @@
 
 import { Check, Minus } from 'lucide-react';
 import { Reveal } from '@/app/components/ui/Reveal';
-import { methodOptions, processSteps } from '@/lib/data/methods';
+import { methodOptions } from '@/lib/data/methods';
 import { useOrderForm } from './OrderFormProvider';
 import { trackEvent } from '@/lib/analytics';
 
@@ -24,12 +24,13 @@ export function Methods() {
           {methodOptions.map((method) => (
             <div key={method.id} className={`method-card${method.featured ? ' featured' : ''}`}>
               <div className="method-big-label text-impact">METHOD {method.id}</div>
+              <div className="method-device">{method.name}</div>
               {method.recommendedLabel ? <div className="method-reco">{method.recommendedLabel}</div> : null}
               <div className="method-fit">
                 <b>Cocok kalau:</b> {method.fitDescription}
               </div>
               <ol className="method-process" aria-label="Alur pembuatan akun">
-                {processSteps.map((step, i) => (
+                {method.processSteps.map((step, i) => (
                   <li key={step.label} style={{ animationDelay: `${i * 0.25}s` }}>
                     <span className="method-process-dot" aria-hidden="true" />
                     <span className="method-process-text">

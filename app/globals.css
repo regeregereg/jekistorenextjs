@@ -2301,3 +2301,118 @@ footer {
   font-size: 0.85rem;
   font-weight: 500;
 }
+
+/* Nama perangkat di bawah label METHOD di kartu method */
+.method-device {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 5px 12px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line-hi);
+  border-radius: 999px;
+}
+
+/* Daftar masalah di cerita pendiri (section testimoni) */
+.spotlight-story-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.spotlight-story-list li {
+  position: relative;
+  padding: 12px 14px 12px 40px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--spot-ink-mid);
+  border: 1px solid var(--spot-line);
+  border-radius: 12px;
+}
+.spotlight-story-list li::before {
+  content: '✕';
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--spot-ink);
+}
+.spotlight-story-list li b {
+  color: var(--spot-ink);
+  font-weight: 700;
+}
+
+/* Misi & disclaimer */
+.mission-copy {
+  max-width: 620px;
+  margin-top: 18px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-mid);
+}
+.mission-copy b {
+  color: var(--ink);
+  font-weight: 700;
+}
+.disclaimer-card {
+  max-width: 620px;
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid var(--line-hi);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+.disclaimer-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-bottom: 14px;
+}
+.disclaimer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.disclaimer-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 14px;
+  border-left: 2px solid var(--line-hi);
+}
+.disclaimer-list li b {
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.disclaimer-list li span {
+  color: var(--ink-mid);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+.order-disclaimer {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px dashed var(--line-hi);
+  border-radius: 12px;
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  text-align: left;
+}
+.order-disclaimer b {
+  color: var(--ink);
+}

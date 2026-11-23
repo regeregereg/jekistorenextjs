@@ -53,7 +53,7 @@ export const viewport: Viewport = {
   themeColor: '#0B0C0E',
 };
 
-const title = `TradingView Premium ${new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(siteConfig.price.amount)}/${siteConfig.price.period} — ${siteConfig.name}`;
+const title = `${siteConfig.name} — TradingView Premium untuk Pemula yang Sedang Belajar`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -84,8 +84,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: siteConfig.name,
     title,
-    description:
-      'Akses penuh TradingView Premium: Replay Mode semua timeframe, indikator tak terbatas, alert realtime. Harga terjangkau, akun private, garansi aktif.',
+    description: siteConfig.description,
     url: siteConfig.url,
     images: [{ url: siteConfig.ogImagePath, width: 1200, height: 630 }],
     locale: 'id_ID',
@@ -93,7 +92,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title,
-    description: 'Akses penuh TradingView Premium harga terjangkau. Akun private, garansi aktif. Order via WhatsApp.',
+    description: siteConfig.description,
     images: [siteConfig.ogImagePath],
   },
   other: {

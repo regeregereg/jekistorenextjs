@@ -6,17 +6,19 @@ import { Reveal } from '@/app/components/ui/Reveal';
 import { WhatsAppIcon } from '@/app/components/ui/Icons';
 import { siteConfig } from '@/lib/config/site';
 import { formatRupiah } from '@/lib/format';
-import { methodOptions, orderChecklist } from '@/lib/data/methods';
+import { methodOptions } from '@/lib/data/methods';
 import { buildOrderMessage, buildWhatsAppUrl } from '@/lib/whatsapp';
 import { trackEvent } from '@/lib/analytics';
 import { useOrderForm } from './OrderFormProvider';
 
 const priceInclusions = [
   'Akun private, bukan shared',
+  'BUKAN yang setiap hari MINTA SESSION!',
   'Garansi penggantian gratis',
-  `Admin responsif ${siteConfig.operatingHours.openTime}–${siteConfig.operatingHours.closeTime} ${siteConfig.operatingHours.timezone}`,
+  `Admin responsif sesuai jam aktif (${siteConfig.operatingHours.openTime}–${siteConfig.operatingHours.closeTime} ${siteConfig.operatingHours.timezone})`,
   'Pembayaran via QRIS',
-  'Akun dibuatkan admin, tanpa Gmail baru',
+  'Akun dibuatkan admin (private)',
+  'Tersedia via PC/Laptop/Mac maupun HP/Tablet (browser)',
 ];
 
 export function PricingOrder() {
@@ -65,7 +67,7 @@ export function PricingOrder() {
             <span className="mark">{siteConfig.brandMark}</span>
             <span className="word">{siteConfig.name.toUpperCase()}</span>
           </div>
-          <div className="plan-name">Langganan Bulanan · Akses Penuh</div>
+          <div className="plan-name">Langganan Bulanan · Untuk Pemula</div>
           <div className="plan-price">{formatRupiah(siteConfig.price.amount)}</div>
           <div className="plan-period">/ {siteConfig.price.period}</div>
 
@@ -119,7 +121,7 @@ export function PricingOrder() {
                     <label htmlFor={`m${method.id}`} className="method-opt-label">
                       <div className="radio-dot" />
                       <span>
-                        Method {method.id} — {method.name === 'PC Premium' ? 'PC/Laptop/Mac' : method.name}
+                        Method {method.id} — {method.name}
                       </span>
                       <div className="method-opt-check">
                         <Check size={11} />
@@ -130,14 +132,14 @@ export function PricingOrder() {
               </div>
 
               {/* Syarat method yang dipilih, supaya pembeli paham sebelum chat
-                  admin (PC only, estimasi 6-8 jam, akun dibuatkan admin). */}
+                  admin (perangkat yang didukung, estimasi 6-8 jam, akun dibuatkan admin). */}
               {selectedMethod ? (
                 <div className="method-hint" aria-live="polite">
                   <p className="method-hint-fit">
                     <strong>Sebelum order, pastikan ya:</strong>
                   </p>
                   <ul className="method-hint-list">
-                    {orderChecklist.map((item) => (
+                    {selectedMethod.orderChecklist.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
@@ -158,6 +160,11 @@ export function PricingOrder() {
             <p className="widget-note">
               Pembuatan akun 6–8 jam · Layanan {siteConfig.operatingHours.openTime}–{siteConfig.operatingHours.closeTime}{' '}
               {siteConfig.operatingHours.timezone}
+            </p>
+            <p className="order-disclaimer">
+              <b>Disclaimer:</b> Jeki Store untuk pemula yang sedang belajar. Kalau sudah mahir atau ada budget lebih,
+              mimin sangat menyarankan langganan pribadi paket Essential di TradingView, bisa dipakai di semua device
+              dan aplikasi.
             </p>
           </form>
         </Reveal>

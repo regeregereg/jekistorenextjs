@@ -4,6 +4,11 @@ import { useRef, useState } from 'react';
 import { ImageWithFallback } from '@/app/components/ui/ImageWithFallback';
 import { spotlightTestimonials, founderStory } from '@/lib/data/testimonials';
 import { siteConfig } from '@/lib/config/site';
+import type { TextSegment } from '@/types';
+
+function renderSegments(segments: TextSegment[]) {
+  return segments.map((seg, i) => (seg.bold ? <b key={i}>{seg.text}</b> : <span key={i}>{seg.text}</span>));
+}
 
 /**
  * Slider testimoni "spotlight": satu kartu besar tampil penuh, digeser
@@ -36,7 +41,7 @@ export function TestimonialSpotlight() {
   return (
     <section className="spotlight" aria-label="Testimoni pelanggan">
       <div className="container spotlight-head">
-        <h2 className="spotlight-heading">Kata mereka yang merasa terbantu dengan jasa yang kita sediakan.</h2>
+        <h2 className="spotlight-heading">Kata mereka yang merasa terbantu dengan jasa/service yang kita sediakan.</h2>
       </div>
 
       <div className="container">
@@ -104,13 +109,17 @@ export function TestimonialSpotlight() {
       </div>
 
       <div className="container spotlight-story">
-        {founderStory.map((paragraph, pIndex) => (
-          <p key={pIndex}>
-            {paragraph.map((seg, sIndex) =>
-              seg.bold ? <b key={sIndex}>{seg.text}</b> : <span key={sIndex}>{seg.text}</span>,
-            )}
-          </p>
-        ))}
+        {founderStory.map((block, bIndex) =>
+          block.type === 'list' ? (
+            <ul className="spotlight-story-list" key={bIndex}>
+              {block.items.map((item, iIndex) => (
+                <li key={iIndex}>{renderSegments(item)}</li>
+              ))}
+            </ul>
+          ) : (
+            <p key={bIndex}>{renderSegments(block.segments)}</p>
+          ),
+        )}
       </div>
 
       <div className="spotlight-watermark text-impact" aria-hidden="true">

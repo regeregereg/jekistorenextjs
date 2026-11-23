@@ -25,7 +25,8 @@ export function Footer() {
               <span className="word">{siteConfig.name.toUpperCase()}</span>
             </div>
             <p className="footer-tagline">
-              Perjalanan trading jangka panjang. Buka semua batasan TradingView, perlahan tapi pasti.
+              Membantu pemula yang sedang belajar dengan tools &amp; jasa terjangkau, supaya bisa backtest pakai Replay
+              Mode di semua timeframe.
             </p>
           </div>
           <div className="footer-cols">

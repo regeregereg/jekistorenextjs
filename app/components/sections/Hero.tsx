@@ -32,8 +32,9 @@ export function Hero() {
             berubah - lihat lib/data/testimonials.ts untuk pola data-driven
             kalau butuh konten yang lebih sering diedit. */}
         <p className="hero-sub">
-          {siteConfig.name} <b>membantu</b> kamu membuka semua batasan <b>TradingView gratis,</b> mulai dari{' '}
-          <b>indikator,</b> alert, hingga <b>Replay Mode</b> tanpa kompromi, dengan harga yang <b>masuk akal.</b>
+          {siteConfig.name} <b>membantu Pemula</b> yang sedang dalam proses belajar dan membutuhkan tools &amp; fitur
+          yang memadai, seperti <b>indikator lebih dari 3,</b> <b>alert,</b> hingga <b>Replay Mode</b> di semua
+          timeframe hingga <b>detik.</b> Dengan harga yang <b>memadai.</b>
         </p>
 
         <a href="#order" className="hero-cta-pill">

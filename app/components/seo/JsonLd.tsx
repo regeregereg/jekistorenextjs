@@ -16,9 +16,9 @@ export function JsonLd() {
       {
         '@type': 'Product',
         '@id': `${siteConfig.url}/#product`,
-        name: `TradingView Premium — ${siteConfig.name}`,
+        name: `Akses TradingView Premium untuk pemula — ${siteConfig.name}`,
         description:
-          'Akses penuh fitur TradingView Premium: Replay Mode semua timeframe, indikator tak terbatas, alert realtime tanpa batas, multi-chart hingga 8 layout.',
+          'Layanan untuk pemula yang sedang belajar trading: akun private untuk memakai Replay Mode (backtest di semua timeframe), indikator lebih dari 3, dan alert. Diakses lewat browser di PC/laptop/Mac atau HP/tablet. Jeki Store adalah layanan independen; pengguna yang sudah mahir atau punya budget lebih disarankan langganan langsung di TradingView.',
         image: [`${siteConfig.url}${siteConfig.ogImagePath}`],
         brand: { '@type': 'Brand', name: siteConfig.name },
         offers: {
@@ -78,7 +78,7 @@ export function JsonLd() {
         url: `${siteConfig.url}/tentang`,
         name: `Tentang ${siteConfig.name}`,
         description:
-          'Reseller TradingView Premium terpercaya di Indonesia sejak Maret 2025 - kenapa kami ada, masalah yang kami selesaikan, dan buktinya.',
+          'Misi Jeki Store: membantu pemula yang sedang belajar dengan budget terbatas. Kenapa kami ada, masalah yang kami selesaikan, dan siapa yang sebaiknya tidak memakai layanan ini.',
         mainEntity: { '@id': `${siteConfig.url}/#business` },
       },
     ],
