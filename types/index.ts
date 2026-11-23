@@ -58,9 +58,15 @@ export interface MembershipFeature {
   visual: MembershipVisualId;
 }
 
+export interface ProcessStep {
+  label: string;
+  note: string;
+}
+
 export interface MethodOption {
   id: number;
   code: string;
+  /** Nama perangkat yang ditampilkan di kartu, form order, dan pesan WhatsApp. */
   name: string;
   featured?: boolean;
   recommendedLabel?: string;
@@ -68,6 +74,10 @@ export interface MethodOption {
   pros: string[];
   cons: string[];
   adviceNote?: string;
+  /** Alur proses yang divisualkan di kartu method. */
+  processSteps: ProcessStep[];
+  /** Poin "Sebelum order, pastikan ya" di form order. */
+  orderChecklist: string[];
 }
 
 export interface FaqItem {
@@ -104,6 +114,11 @@ export interface TextSegment {
   text: string;
   bold?: boolean;
 }
+
+/** Satu blok di cerita pendiri: paragraf biasa atau daftar poin. */
+export type StoryBlock =
+  | { type: 'p'; segments: TextSegment[] }
+  | { type: 'list'; items: TextSegment[][] };
 
 export interface OrderRequest {
   name: string;
